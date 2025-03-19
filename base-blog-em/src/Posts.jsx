@@ -42,7 +42,14 @@ export function Posts() {
     <>
       <ul>
         {data.map((post) => (
-          <li key={post.id} className="post-title" onClick={() => setSelectedPost(post)}>
+          <li
+            key={post.id}
+            className="post-title"
+            onClick={() => {
+              deleteMutation.reset();
+              setSelectedPost(post);
+            }}
+          >
             {post.title}
           </li>
         ))}
